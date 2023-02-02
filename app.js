@@ -17,7 +17,7 @@ app.get('/user/:id',
         users = JSON.parse(fs.readFileSync(file))
         
         for (let i = 0; i < users.length; i++) {
-            if(users[iS].id == id){
+            if(users[i].id == id){
                 res.json(users[i])
             }
         }
@@ -25,7 +25,16 @@ app.get('/user/:id',
 )
 
 app.post('/users/add',(req, res)=>{
-    
+
+    users = JSON.parse(fs.readFileSync(file))
+    var {username} = req.body
+    var user = {
+        "id": (users.length + 1),
+        username
+    }
+    res.json("User "+username+" registered succesfull")
+    users.push(user)
+    fs.writeFileSync(file, JSON.stringify(users))
 })
 
 // List all user - Route API
