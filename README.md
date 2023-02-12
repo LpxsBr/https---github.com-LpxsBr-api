@@ -1,10 +1,12 @@
 # API WITH NODE JS
 
+---
+
 ## POST - Add User
 
 Route: ``` host/users/add ```
 
-#### Body example for this API
+#### Body example
 
 ```
 {
@@ -12,7 +14,42 @@ Route: ``` host/users/add ```
     "email": "user@sample.com",
     "password": "password@sample#123"
 }
+
 ```
+### Post - Auth user
+
+``` host/users/auth ```
+
+
+#### Body example
+
+```
+{
+    "email": "user@sample.com",
+    "password": "password@sample#123"
+}
+
+```
+
+#### Returns
+##### if login is true
+
+```
+{
+    "msg": "logged",
+    "id": 1
+}
+```
+##### if login is false
+
+```
+{
+    "msg": "not logged",
+}
+```
+
+
+---
 
 ## GET - List Users
 
