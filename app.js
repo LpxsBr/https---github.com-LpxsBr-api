@@ -53,6 +53,31 @@ app.post('/users/add',(req, res, next)=>{
     }
 })
 
+app.post('/users/auth', (req, res, next)=>{
+    users = JSON.parse(fs.readFileSync(file));
+    var {email, password} = req.body;
+    var isLoogged = false
+    var id = null
+
+    for (let i = 0; i < users.length; i++) {
+        if(users[i].email == email){
+            console.log('oi')
+            if(users[i].password == password){
+                console.log('ai')
+                id = users[i].id
+                isLoogged = true
+            }
+        }
+    }
+
+    if(isLoogged == true){
+        res.json({msg: "logged",id: id })
+    }else{
+        res.json({msg: "not logged"})
+    }
+
+})
+
 // List all user - Route API
 app.get('/users/list', function(req, res, next) {
         users = JSON.parse(fs.readFileSync(file));
@@ -61,6 +86,6 @@ app.get('/users/list', function(req, res, next) {
     )
 
 app.listen(8080,function(req, res) {
-    console.clear();
+    // console.clear();
     console.log('NodeJs Server do Anselmo Rodando :)');
 })
