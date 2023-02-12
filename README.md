@@ -2,9 +2,17 @@
 
 ## POST - Add User
 
+Route: ``` host/users/add ```
+
 #### Body example for this API
 
-``` {"username": "george"} ```
+```
+{
+    "username": "sample user",
+    "email": "user@sample.com",
+    "password": "password@sample#123"
+}
+```
 
 ## GET - List Users
 
@@ -21,3 +29,8 @@ return welcome messages
 #### Get an user by id
 
 ``` host/user/{id} ```
+
+-----
+
+Client API was make in React Js using Axios
+You can access [here](https://github.com/LpxsBr/FRONT-FOR-LpxsBr-https---github.com-LpxsBr-api)
