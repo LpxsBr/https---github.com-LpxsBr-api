@@ -85,7 +85,9 @@ app.get('/users/list', function(req, res, next) {
         }
     )
 
-app.listen(8080,function(req, res) {
-    // console.clear();
-    console.log('NodeJs Server do Anselmo Rodando :)');
+const port = process.env.PORT || 9001
+
+app.listen(port,function(req, res) {
+    console.clear();
+    console.log(`NodeJs Server run in the Port ${port}`);
 })
